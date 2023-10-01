@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            background-color: red;
+        }
+
+        .container {
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+
+        .box {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: cornsilk;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h2>Temperature Converter</h2>
+            <label for="celsius">Enter Temperature in Celsius:</label>
+            <input type="number" id="celsius" placeholder="Enter Celsius temperature" step="0.01">
+            <button onclick="convertTemperature()">Convert</button>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script>
+        function convertTemperature() {
+            const celsiusInput = document.getElementById("celsius").value;
+            const celsius = parseFloat(celsiusInput);
+
+            if (!isNaN(celsius)) {
+                const fahrenheit = (celsius * 9 / 5) + 32;
+                document.getElementById("result").innerHTML = `${celsius} degrees Celsius is equal to ${fahrenheit.toFixed(2)} degrees Fahrenheit.`;
+            } else {
+                document.getElementById("result").innerHTML = "Please enter a valid temperature.";
+            }
+        }
+    </script>
+</body>
+
+</html>
